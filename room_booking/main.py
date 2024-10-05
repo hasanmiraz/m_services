@@ -24,6 +24,14 @@ app.add_middleware(
     allow_headers=["*"],  # Allow all headers (authorization, content-type)
 )
 
+@app.get("/users/phone/{phone_number}", response_model=schemas.UserResponse)
+def get_user_by_phone(phone_number: str, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.phone_number == phone_number).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user
+
+
 @app.get("/users/", response_model=List[schemas.UserResponse])
 def get_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
     users = db.query(models.User).offset(skip).limit(limit).all()

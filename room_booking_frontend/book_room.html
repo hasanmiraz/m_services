@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Room - Room Booking</title>
+    <link rel="stylesheet" href="css/book_room.css">
+</head>
+<body>
+    <section id="room-booking-section">
+        <h1>Book a Room</h1>
+        <h2>Room Booking</h2>
+        <form id="room-booking-form" onsubmit="bookRoom(event)">
+            <label for="room-select">Select Room Type:</label>
+            <select id="room-select" required onchange="calculateTotalPrice()">
+                <option value="" disabled selected>Select a room</option>
+            </select>
+
+            <input type="text" id="phone-number" placeholder="Enter Phone Number" required>
+            <input type="date" id="check-in" required onchange="calculateTotalPrice()">
+            <input type="date" id="check-out" required onchange="calculateTotalPrice()">
+
+            <!-- Read-only field for displaying the total price -->
+            <input type="text" id="total-price" placeholder="Total Price" readonly>
+
+            <button type="submit">Book Room</button>
+        </form>
+        <div id="room-booking-result"></div>
+    </section>
+
+    <script src="js/book_room.js"></script>
+</body>
+</html>
