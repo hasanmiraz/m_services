@@ -1,4 +1,6 @@
 import uvicorn
 
 if __name__ == "__main__":
-    uvicorn.run("app1.main:app", host="127.0.0.1", port=8000, reload=True)
+    # uvicorn.run("room_booking.main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("table_reservation.main:app", host="127.0.0.1", port=8000, reload=True)
+    
