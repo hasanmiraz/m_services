@@ -2,9 +2,22 @@ from pydantic import BaseModel
 from datetime import datetime
 from typing import List
 
+# User schemas
 class UserCreate(BaseModel):
-    username: str
+    first_name: str
+    last_name: str
+    phone_number: str
     email: str
+
+class UserResponse(BaseModel):
+    id: int
+    first_name: str
+    last_name: str
+    phone_number: str
+    email: str
+
+    class Config:
+        from_attributes = True
 
 class BookingCreate(BaseModel):
     user_id: int
@@ -23,7 +36,7 @@ class BookingResponse(BaseModel):
     booking_status: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class RoomCreate(BaseModel):
     room_type: str
@@ -37,4 +50,4 @@ class RoomResponse(BaseModel):
     availability_status: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True

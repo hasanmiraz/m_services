@@ -17,7 +17,7 @@ class UserResponse(BaseModel):
     email: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # Tour schemas
 class TourCreate(BaseModel):
@@ -34,7 +34,7 @@ class TourResponse(BaseModel):
     available_slots: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # Tour Reservation schemas
 class TourReservationCreate(BaseModel):
@@ -50,4 +50,4 @@ class TourReservationResponse(BaseModel):
     booking_status: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True

@@ -3,20 +3,45 @@ from sqlalchemy.orm import Session
 from typing import List  # You need to import List from the typing module
 from . import models, schemas
 from .database import engine, get_db
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # Create the database tables
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+origins = [
+    "http://127.0.0.1:8080",  # Frontend URL if you are using localhost
+    "http://localhost:8080",  # Add any other origins you want to allow
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allow specific origins (localhost frontend)
+    allow_credentials=True,  # Allow cookies and credentials
+    allow_methods=["*"],  # Allow all methods (GET, POST, PUT, DELETE, OPTIONS)
+    allow_headers=["*"],  # Allow all headers (authorization, content-type)
+)
+
+@app.get("/users/", response_model=List[schemas.UserResponse])
+def get_users(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
+    users = db.query(models.User).offset(skip).limit(limit).all()
+    return users
+
 # 1. Register User
-@app.post("/users/", response_model=schemas.UserCreate)
+@app.post("/users/", response_model=schemas.UserResponse)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db_user = db.query(models.User).filter(models.User.email == user.email).first()
     if db_user:
         raise HTTPException(status_code=400, detail="Email already registered")
-    
-    new_user = models.User(username=user.username, email=user.email)
+
+    new_user = models.User(
+        first_name=user.first_name,
+        last_name=user.last_name,
+        phone_number=user.phone_number,
+        email=user.email
+    )
     db.add(new_user)
     db.commit()
     db.refresh(new_user)

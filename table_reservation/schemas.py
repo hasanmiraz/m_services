@@ -17,7 +17,7 @@ class UserResponse(BaseModel):
     email: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # Table schemas
 class TableCreate(BaseModel):
@@ -32,7 +32,7 @@ class TableResponse(BaseModel):
     availability_status: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # Reservation schemas
 class ReservationCreate(BaseModel):
@@ -54,4 +54,4 @@ class ReservationResponse(BaseModel):
     reservation_status: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
