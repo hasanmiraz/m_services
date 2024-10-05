@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Room Booking Service</h1>
+
+    <section id="user-section">
+        <h2>User Info</h2>
+        <input type="number" id="user-id" placeholder="Enter User ID">
+        <button onclick="getUser()">Get User Info</button>
+        <div id="user-info"></div>
+    </section>
+
+    <section id="rooms-section">
+        <h2>Available Rooms</h2>
+        <div id="rooms"></div>
+    </section>
+
+    <section id="booking-section">
+        <h2>Book a Room</h2>
+        <input type="number" id="user-id-booking" placeholder="User ID">
+        <input type="number" id="room-id-booking" placeholder="Room ID">
+        <input type="date" id="check-in" placeholder="Check-in Date">
+        <input type="date" id="check-out" placeholder="Check-out Date">
+        <input type="number" id="total-price" placeholder="Total Price">
+        <button onclick="bookRoom()">Book Room</button>
+        <div id="booking-result"></div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
