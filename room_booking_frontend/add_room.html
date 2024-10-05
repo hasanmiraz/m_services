@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add New Room - Room Booking</title>
+    <link rel="stylesheet" href="css/add_room.css">
+</head>
+<body>
+    <section id="room-addition-section">
+        <h1>Add a New Room</h1>
+        <h2>Add Room Details</h2>
+        <form id="room-addition-form" onsubmit="addRoom(event)">
+            <input type="text" id="room-type" placeholder="Room Type (e.g., Deluxe)" required>
+            <input type="number" id="price-per-night" placeholder="Price Per Night" step="0.01" required>
+            <select id="availability-status" required>
+                <option value="available">Available</option>
+                <option value="booked">Booked</option>
+            </select>
+            <button type="submit">Add Room</button>
+        </form>
+        <div id="room-addition-result"></div>
+    </section>
+
+    <script src="js/add_room.js"></script>
+</body>
+</html>
