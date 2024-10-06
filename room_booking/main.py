@@ -12,8 +12,8 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 origins = [
-    "http://127.0.0.1:8080",  # Frontend URL if you are using localhost
-    "http://localhost:8080",  # Add any other origins you want to allow
+    "http://127.0.0.1:8080",  # Frontend URL if are using localhost
+    "http://localhost:8080",  # Add any other origins want to allow
 ]
 
 app.add_middleware(
