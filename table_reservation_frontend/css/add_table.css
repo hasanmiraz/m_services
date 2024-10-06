@@ -1,0 +1,97 @@
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with the Theme's background gradient */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #4A4A4A;
+}
+
+/* Container for the form */
+#table-addition-section {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Main header styling */
+h1 {
+    color: #4A4A4A;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Sub-header styling */
+h2 {
+    color: #4A4A4A;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+/* Form labels */
+label {
+    font-size: 1rem;
+    color: #4A4A4A;
+    text-align: left;
+    width: 100%;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Form input fields styling with the Theme's input background */
+input, select {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 25px;
+    background-color: #f4f4f4;
+    color: #4A4A4A;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+/* Input field focus state using the Theme's input focus color */
+input:focus, select:focus {
+    background-color: #e8e8e8;
+    outline: none;
+}
+
+/* Button styling with the Theme's gradient */
+button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #f6d365, #fda085);
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    color: #ffffff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background: linear-gradient(135deg, #fda085, #f6d365);
+}
+
+/* Result message area with the Theme's success message color */
+#table-addition-result {
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #2ecc71;
+}

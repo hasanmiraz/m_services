@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table - Table Reservation</title>
+    <link rel="stylesheet" href="css/reserve_table.css">
+</head>
+<body>
+    <section id="table-booking-section">
+        <h1>Book a Table</h1>
+        <h2>Table Reservation</h2>
+        <form id="table-booking-form" onsubmit="bookTable(event)">
+            <label for="table-select">Select Table:</label>
+            <select id="table-select" required>
+                <option value="" disabled selected>Select a table</option>
+            </select>
+
+            <input type="text" id="phone-number" placeholder="Enter Phone Number" required>
+            <input type="datetime-local" id="reservation-time" placeholder="Reservation Time" required>
+
+            <button type="submit">Book Table</button>
+        </form>
+        <div id="table-booking-result"></div>
+    </section>
+
+    <script src="js/reserve_table.js"></script>
+</body>
+</html>
