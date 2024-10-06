@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:8000';  // Change to backend URL
+const API_URL = 'http://127.0.0.1:8001';  // Change to backend URL
 
 // Function to register a new user
 async function registerUser(event) {

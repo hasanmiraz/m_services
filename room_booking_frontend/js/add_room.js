@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:8000';  // Change to your backend URL
+const API_URL = 'http://127.0.0.1:8000';  // Change to backend URL
 
 // Function to add a new room
 async function addRoom(event) {

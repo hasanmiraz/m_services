@@ -3,12 +3,32 @@ from sqlalchemy.orm import Session
 from typing import List
 from . import models, schemas
 from .database import engine, get_db
+from fastapi.middleware.cors import CORSMiddleware
 
 # Create the database tables
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+origins = [
+    "http://127.0.0.1:8080",  # Frontend URL if you are using localhost
+    "http://localhost:8080",  # Add any other origins you want to allow
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,  # Allow specific origins (localhost frontend)
+    allow_credentials=True,  # Allow cookies and credentials
+    allow_methods=["*"],  # Allow all methods (GET, POST, PUT, DELETE, OPTIONS)
+    allow_headers=["*"],  # Allow all headers (authorization, content-type)
+)
+
+@app.get("/users/phone/{phone_number}", response_model=schemas.UserResponse)
+def get_user_by_phone(phone_number: str, db: Session = Depends(get_db)):
+    user = db.query(models.User).filter(models.User.phone_number == phone_number).first()
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    return user
 # 1. Create a User
 @app.post("/users/", response_model=schemas.UserResponse)
 def create_user(user: schemas.UserCreate, db: Session = Depends(get_db)):

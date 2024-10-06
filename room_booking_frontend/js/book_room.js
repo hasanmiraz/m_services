@@ -1,4 +1,4 @@
-const API_URL = 'http://127.0.0.1:8000';  // Change to your backend URL
+const API_URL = 'http://127.0.0.1:8000';  // Change to backend URL
 
 let roomsData = {};  // To store room information with prices
 
